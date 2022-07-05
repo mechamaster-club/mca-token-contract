@@ -6,12 +6,6 @@ import "./ContractOwner.sol";
 import "./Manager.sol";
 
 abstract contract Member is ContractOwner {
-    modifier CheckPermit(string memory permit) {
-        require(manager.userPermits(msg.sender, permit),
-            "no permit");
-        _;
-    }
-    
     Manager public manager;
 
     function __initializeMember() internal initializer {
